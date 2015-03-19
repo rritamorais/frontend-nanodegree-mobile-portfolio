@@ -4,3 +4,5 @@
       // TODO: replace with your Google Analytics profile ID.
       ga('create', '60838483');
       ga('send', 'pageview');
+
+      //didn't understand how to do this
