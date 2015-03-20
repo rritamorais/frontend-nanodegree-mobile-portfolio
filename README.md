@@ -1,40 +1,29 @@
-## Website Performance Optimization portfolio project
 
-Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
+####RUN MOBILE PORTFOLIO
+ 
+* Open index.html on your browser
+* Click on the projects links to read about them
+* On the pizza.html you can: click on the buttons to check the menu, our ingredients, locations and contacts, you can pick a random pizza and you can change the pizza sizes on the slider.
 
-To get started, check out the repository, inspect the code,
 
-### Getting started
+####Changes made and results in index.html (initial result: 30/100; 28/100 -- timeline: 11s )
+ 
+* Added the print media query to print.css -- 8,66s
+* Made analytics async -- 6,72s
+* Pizzeria.jpg resize and save for web -- 88/100; 74/100 + pizzeriasmall.jpg added for index.html
+* Removed googleanalytics.js javascript and made it async -- same result
+* Removed all the unnecessary classes in style.css and inlined it - 90/100; 88/100 (around)
+* Used WebfontConfig for the font 96/100; 94/100 
+* FINAL RESULT: 96/100; 94/100 timeline: 517ms
 
-####Part 1: Optimize PageSpeed Insights score for index.html
+####Changes made and results in main.js (initial result: 10 frames: 34/24ms, time to resize pizzas: 88.86ms )
+ 
+* Reduced the amount of pizzas being generated in the background from 200 to the necessary 22 (added one more row just in case the formats are different) so 8x4=32 -- 10 frames: 5/6ms
+* Created variables for the updatePositions function, removed them from the for loop so they are only calculated once --- 10 frames: 2/0.2 ms
+* Created variabes for the changePizzaSizes function 
+* Changed querySelectorAll to getEmentsByClassName based on: https://jsperf.com/getelementsbyclassname-vs-queryselectorall/18 --- time to resize pizzas: 0.26 ms
+* FINAL RESULT: 10 frames: 2ms (first) 0.2 ms / time to resize pizzas: 0.26
 
-Some useful tips to help you get started:
-
-1. Check out the repository
-1. To inspect the site on your phone, you can run a local server
-
-  ```bash
-  $> cd /path/to/your-project-folder
-  $> python -m SimpleHTTPServer 8080
-  ```
-
-1. Open a browser and visit localhost:8080
-1. Download and install [ngrok](https://ngrok.com/) to make your local server accessible remotely.
-
-  ``` bash
-  $> cd /path/to/your-project-folder
-  $> ngrok 8080
-  ```
-
-1. Copy the public URL ngrok gives you and try running it through PageSpeed Insights! Optional: [More on integrating ngrok, Grunt and PageSpeed.](http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/)
-
-Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
-
-####Part 2: Optimize Frames per Second in pizza.html
-
-To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js. 
-
-You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
 
 ### Optimization Tips and Tricks
 * [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")
